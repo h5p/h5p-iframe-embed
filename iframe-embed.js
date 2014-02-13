@@ -16,7 +16,7 @@ H5P.IFrameEmbed = function (options, contentId) {
   }
 
   var attach = function ($wrapper) {
-    $wrapper.html('').addClass('h5p-edge');
+    $wrapper.html('');
     
     var iFrameSource = '';
     
