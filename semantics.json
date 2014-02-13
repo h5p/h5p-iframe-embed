@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Width",
+    "name": "width",
+    "type": "text",
+    "description": "Width of iFrame in CSS compliant format. Default: \"100%\""
+  },
+  {
+    "label": "Height",
+    "name": "height",
+    "type": "text",
+    "description": "Height of iFrame in CSS compliant format. Default: \"500px\""
+  },
+  {
+    "label": "Minimum height",
+    "name": "minHeight",
+    "type": "text",
+    "description": "Minimum height of iFrame in CSS compliant format. Default: \"420px\""
+  },
+  {
+    "label": "Source",
+    "name": "source",
+    "type": "text",
+    "description": "URI to external document, or path to document found inside H5P (under /content)"
+  }
+]
