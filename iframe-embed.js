@@ -1,79 +1,81 @@
 var H5P = H5P || {};
 
-H5P.IFrameEmbed = function (options, contentId) {
-  var self = this,
-    $ = H5P.jQuery;
+H5P.IFrameEmbed = function(options, contentId) {
+  var $ = H5P.jQuery;
+  var $iframe = null;
 
-  this.options = H5P.jQuery.extend({}, {
-    "width": "100%",
-    "height": "500px",
-    "minHeight": "420px",
-    "source": ""
+  var options = H5P.jQuery.extend({}, {
+    width: "500px",
+    minWidth: "300px",
+    height: "500px",
+    source: ""
   }, options);
 
   if (!this instanceof H5P.IFrameEmbed){
     return new H5P.IFrameEmbed(options, contentId);
   }
 
-  var attach = function ($wrapper) {
-    $wrapper.html('');
-    
+  var attach = function($wrapper) {
+    // Set up an iframe with the correct source, and append
+    // it to '$wrapper'.
+
     var iFrameSource = '';
-    
-    if (self.options.source !== undefined) {
-      if(self.options.source.trim().toLowerCase().substring(0, 4) === 'http') {
-        iFrameSource = self.options.source;
+
+    if (options.source !== undefined) {
+      if (options.source.trim().toLowerCase().substring(0, 4) === 'http') {
+        iFrameSource = options.source;
       }
       else {
-        iFrameSource = H5P.getContentPath(contentId) + '/' + self.options.source;
+        iFrameSource = H5P.getContentPath(contentId) + '/' + options.source;
       }
     }
-    
-    var $iframe = $('<iframe/>', {
+
+    $iframe = $('<iframe/>', {
       src: iFrameSource,
       scrolling: 'no',
       frameBorder: 0,
       'class': 'h5p-iframe-content h5p-iframe-wrapper'
-    }).css({width: self.options.width, height: self.options.height, 'min-height': self.options.minHeight});
+    }).css({width: options.width, height: options.height});
+
+    $wrapper.html('');
     $wrapper.append($iframe);
-    
-    $iframe.ready(function () {
-      // Get height of h5p at startup
-      var height = $iframe.parent().height();
-      var $doc = $iframe.contents();
-      
-      var resizeIframeInterval = setInterval(function () {
-        var contentWidth = $iframe.parent().width();
-        var contentHeight = $iframe.parent().height();
-        var frameWidth = $iframe.innerWidth();
-        var frameHeight = $iframe.innerHeight();
-        
-        if (frameWidth !== contentWidth || frameHeight !== contentHeight) {
-          $iframe.css({
-            width: (H5P.isFullscreen) ? '100%' : contentWidth + 'px',
-            height: (H5P.isFullscreen) ? '100%' : height + 'px'
-          });
-          $doc[0].documentElement.style.margin = '0 0 1px 0';
-        }
-        else {
-          // Small trick to make scrollbars go away in ie.
-          $doc[0].documentElement.style.margin = '0 0 0 0';
-        }
-      }, 300);
-    });
-
-    return this;
+    resize($iframe);
   };
-  
-  // This is a fix/hack to make touch work in iframe on mobile safari,
-  // like if the iframe is listening to touch events on the iframe's 
-  // window object. (like in PHET simulations)
-  window.addEventListener("touchstart", function () {});
 
-  var returnObject = {
+  var resize = function(element) {
+    // Set size of 'element' on startup, and when the browser
+    // is resized, or enters fullscreen.
+
+    element.css(
+      (H5P.isFullscreen) ? {width: '100%', height: '100%'} : getElementSize(element)
+    );
+  };
+
+  var getElementSize = function(element) {
+    // Get width of 'element' parent. Return width and height
+    // so that 'element' scales (with the proper ratio) to fit
+    // the parent. Make sure 'element' doesn't scale below
+    // 'options.minWidth'.
+
+    var elementMinWidth = parseInt(options.minWidth ,10);
+    var elementSizeRatio = parseInt(options.height, 10) / parseInt(options.width, 10);
+    var parentWidth = element.parent().width();
+    var elementWidth = (parentWidth > elementMinWidth) ? parentWidth : elementMinWidth;
+
+    return {
+      width: elementWidth + 'px',
+      height: elementWidth * elementSizeRatio + 'px'
+    };
+  };
+
+  // This is a fix/hack to make touch work in iframe on mobile safari,
+  // like if the iframe is listening to touch events on the iframe's
+  // window object. (like in PHET simulations)
+  window.addEventListener("touchstart", function() {});
+
+  return {
     attach: attach,
+    resize: resize,
     machineName: 'H5P.IFrameEmbed'
   };
-
-  return returnObject;
 };
