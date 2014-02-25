@@ -1,10 +1,10 @@
 var H5P = H5P || {};
 
-H5P.IFrameEmbed = function(options, contentId) {
+H5P.IFrameEmbed = function (options, contentId) {
   var $ = H5P.jQuery;
   var $iframe = null;
 
-  var options = H5P.jQuery.extend({}, {
+  var options = H5P.jQuery.extend({
     width: "500px",
     minWidth: "300px",
     height: "500px",
@@ -15,7 +15,7 @@ H5P.IFrameEmbed = function(options, contentId) {
     return new H5P.IFrameEmbed(options, contentId);
   }
 
-  var attach = function($wrapper) {
+  var attach = function ($wrapper) {
     // Set up an iframe with the correct source, and append
     // it to '$wrapper'.
 
@@ -39,19 +39,19 @@ H5P.IFrameEmbed = function(options, contentId) {
 
     $wrapper.html('');
     $wrapper.append($iframe);
-    resize($iframe);
+    resize();
   };
 
-  var resize = function(element) {
-    // Set size of 'element' on startup, and when the browser
+  var resize = function () {
+    // Set size of 'iframe' on startup, and when the browser
     // is resized, or enters fullscreen.
 
-    element.css(
-      (H5P.isFullscreen) ? {width: '100%', height: '100%'} : getElementSize(element)
+    $iframe.css(
+      (H5P.isFullscreen) ? {width: '100%', height: '100%'} : getElementSize($iframe)
     );
   };
 
-  var getElementSize = function(element) {
+  var getElementSize = function ($element) {
     // Get width of 'element' parent. Return width and height
     // so that 'element' scales (with the proper ratio) to fit
     // the parent. Make sure 'element' doesn't scale below
@@ -59,7 +59,7 @@ H5P.IFrameEmbed = function(options, contentId) {
 
     var elementMinWidth = parseInt(options.minWidth ,10);
     var elementSizeRatio = parseInt(options.height, 10) / parseInt(options.width, 10);
-    var parentWidth = element.parent().width();
+    var parentWidth = $element.parent().width();
     var elementWidth = (parentWidth > elementMinWidth) ? parentWidth : elementMinWidth;
 
     return {
@@ -71,7 +71,7 @@ H5P.IFrameEmbed = function(options, contentId) {
   // This is a fix/hack to make touch work in iframe on mobile safari,
   // like if the iframe is listening to touch events on the iframe's
   // window object. (like in PHET simulations)
-  window.addEventListener("touchstart", function() {});
+  window.addEventListener("touchstart", function () {});
 
   return {
     attach: attach,
