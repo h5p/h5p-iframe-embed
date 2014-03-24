@@ -43,14 +43,10 @@ H5P.IFrameEmbed = function (options, contentId) {
     
     if(options.resizeSupported === false) {
       /* Unfortunately fullscreen-button is not in DOM yet.
-       * Therefore we need to remove it using an interval */
-      var interval = setInterval(function (){
-        $enableFullscreenButton = $('.h5p-enable-fullscreen');
-        if($enableFullscreenButton.length !== 0) {
-          clearInterval(interval);
-          $enableFullscreenButton.hide();
-        }
-      }, 10);
+       * Therefore we need to remove it using a timer */
+      setTimeout(function () {
+        $('.h5p-enable-fullscreen').hide();
+      }, 1);
     }
     
     resize();
