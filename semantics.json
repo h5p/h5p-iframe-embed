@@ -22,5 +22,12 @@
     "name": "source",
     "type": "text",
     "description": "URI to external document, or path to document found inside H5P (under /content)"
+  },
+  {
+    "name": "resizeSupported",
+    "type": "boolean",
+    "label": "Resize supported",
+    "description": "If enabled, fullscreen button will be displayed, and H5P will be resized to fit it's surroundings",
+    "default": true
   }
 ]

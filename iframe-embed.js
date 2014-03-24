@@ -8,7 +8,8 @@ H5P.IFrameEmbed = function (options, contentId) {
     width: "500px",
     minWidth: "300px",
     height: "500px",
-    source: ""
+    source: "",
+    resizeSupported: true
   }, options);
 
   if (!this instanceof H5P.IFrameEmbed){
@@ -39,16 +40,30 @@ H5P.IFrameEmbed = function (options, contentId) {
 
     $wrapper.html('');
     $wrapper.append($iframe);
+    
+    if(options.resizeSupported === false) {
+      /* Unfortunately fullscreen-button is not in DOM yet.
+       * Therefore we need to remove it using an interval */
+      var interval = setInterval(function (){
+        $enableFullscreenButton = $('.h5p-enable-fullscreen');
+        if($enableFullscreenButton.length !== 0) {
+          clearInterval(interval);
+          $enableFullscreenButton.hide();
+        }
+      }, 10);
+    }
+    
     resize();
   };
 
   var resize = function () {
     // Set size of 'iframe' on startup, and when the browser
     // is resized, or enters fullscreen.
-
-    $iframe.css(
-      (H5P.isFullscreen) ? {width: '100%', height: '100%'} : getElementSize($iframe)
-    );
+    if(options.resizeSupported) {
+      $iframe.css(
+        (H5P.isFullscreen) ? {width: '100%', height: '100%'} : getElementSize($iframe)
+      );
+    }
   };
 
   var getElementSize = function ($element) {
