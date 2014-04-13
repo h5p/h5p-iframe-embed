@@ -4,7 +4,7 @@ H5P.IFrameEmbed = function (options, contentId) {
   var $ = H5P.jQuery;
   var $iframe = null;
 
-  var options = H5P.jQuery.extend({
+  options = H5P.jQuery.extend({
     width: "500px",
     minWidth: "300px",
     height: "500px",
