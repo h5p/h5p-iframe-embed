@@ -3,7 +3,7 @@ var H5P = H5P || {};
 H5P.IFrameEmbed = function (options, contentId) {
   var $ = H5P.jQuery;
   var $iframe = null;
-  var $this = $(this);
+  this.$ = $(this);
 
   options = H5P.jQuery.extend({
     width: "500px",
@@ -17,7 +17,7 @@ H5P.IFrameEmbed = function (options, contentId) {
     return new H5P.IFrameEmbed(options, contentId);
   }
 
-  var attach = function ($wrapper) {
+  this.attach = function ($wrapper) {
     // Set up an iframe with the correct source, and append
     // it to '$wrapper'.
 
@@ -50,11 +50,10 @@ H5P.IFrameEmbed = function (options, contentId) {
       }, 1);
     }
     
-    $this.bind('resize', resize);
-    resize();
+    this.resize();
   };
 
-  var resize = function () {
+  this.resize = function () {
     // Set size of 'iframe' on startup, and when the browser
     // is resized, or enters fullscreen.
     if(options.resizeSupported) {
@@ -85,10 +84,5 @@ H5P.IFrameEmbed = function (options, contentId) {
   // window object. (like in PHET simulations)
   window.addEventListener("touchstart", function () {});
 
-  return {
-    $: $this,
-    attach: attach,
-    resize: resize,
-    machineName: 'H5P.IFrameEmbed'
-  };
+  return this;
 };
