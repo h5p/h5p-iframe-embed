@@ -50,7 +50,7 @@ H5P.IFrameEmbed = function (options, contentId) {
       }, 1);
     }
     
-    this.resize();
+    this.$.trigger('resize');
   };
 
   this.resize = function () {
@@ -83,6 +83,4 @@ H5P.IFrameEmbed = function (options, contentId) {
   // like if the iframe is listening to touch events on the iframe's
   // window object. (like in PHET simulations)
   window.addEventListener("touchstart", function () {});
-
-  return this;
 };
