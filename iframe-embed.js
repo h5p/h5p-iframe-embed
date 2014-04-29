@@ -3,6 +3,7 @@ var H5P = H5P || {};
 H5P.IFrameEmbed = function (options, contentId) {
   var $ = H5P.jQuery;
   var $iframe = null;
+  var $this = $(this);
 
   options = H5P.jQuery.extend({
     width: "500px",
@@ -49,6 +50,7 @@ H5P.IFrameEmbed = function (options, contentId) {
       }, 1);
     }
     
+    $this.bind('resize', resize);
     resize();
   };
 
@@ -67,7 +69,6 @@ H5P.IFrameEmbed = function (options, contentId) {
     // so that 'element' scales (with the proper ratio) to fit
     // the parent. Make sure 'element' doesn't scale below
     // 'options.minWidth'.
-
     var elementMinWidth = parseInt(options.minWidth ,10);
     var elementSizeRatio = parseInt(options.height, 10) / parseInt(options.width, 10);
     var parentWidth = $element.parent().width();
@@ -85,6 +86,7 @@ H5P.IFrameEmbed = function (options, contentId) {
   window.addEventListener("touchstart", function () {});
 
   return {
+    $: $this,
     attach: attach,
     resize: resize,
     machineName: 'H5P.IFrameEmbed'
