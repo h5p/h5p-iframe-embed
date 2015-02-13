@@ -3,13 +3,15 @@
   "description": "Embed internal or external html files",
   "majorVersion": 1,
   "minorVersion": 0,
-  "patchVersion": 6,
+  "patchVersion": 8,
   "runnable": 1,
   "author": "Amendor AS",
   "license": "cc-by-sa",
   "machineName": "H5P.IFrameEmbed",
   "preloadedJs": [
-    {"path": "iframe-embed.js"}
+    {
+      "path": "iframe-embed.js"
+    }
   ],
   "fullscreen": 1
 }
