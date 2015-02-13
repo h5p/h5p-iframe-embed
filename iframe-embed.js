@@ -50,7 +50,7 @@ H5P.IFrameEmbed = function (options, contentId) {
       }, 1);
     }
     
-    this.triggerH5PEvent('resize');
+    this.trigger('resize');
   };
 
   this.resize = function () {
