@@ -25,7 +25,7 @@ H5P.IFrameEmbed = function (options, contentId) {
 
     if (options.source !== undefined) {
       if (options.source.trim().toLowerCase().substring(0, 4) === 'http') {
-        iFrameSource = options.source;
+        iFrameSource = decode_entities(options.source);
       }
       else {
         iFrameSource = H5P.getContentPath(contentId) + '/' + options.source;
@@ -54,10 +54,6 @@ H5P.IFrameEmbed = function (options, contentId) {
   };
 
   this.resize = function () {
-    // console.log("resize?");
-    // console.log(this.parent);
-    // console.log(this.parent.slides)
-    // console.log(this.parent.slides.length)
     if(this.parent && this.parent.slides && this.parent.slides.length >= 10) { // checks if the parent has slides and is therefore a course presentation
       $iframe.css({width: '100%', height: '100%'}); // always set 100% if course pres
     } else { // default standalone config
@@ -67,7 +63,6 @@ H5P.IFrameEmbed = function (options, contentId) {
         );
       }
     }
-    // console.log("at end");
   };
 
   var getElementSize = function ($element) {
@@ -85,6 +80,29 @@ H5P.IFrameEmbed = function (options, contentId) {
       height: elementWidth * elementSizeRatio + 'px'
     };
   };
+
+  var decode_entities = (function() {
+    // Remove HTML Entities
+    var element = document.createElement('div');
+
+    function decode_HTML_entities (str) {
+      if (str && typeof str === 'string') {
+        // Escape HTML before decoding for HTML Entities
+        str = escape(str).replace(/%26/g,'&').replace(/%23/g,'#').replace(/%3B/g,';');
+        element.innerHTML = str;
+        if (element.innerText) {
+          str = element.innerText;
+          element.innerText = '';
+        } else {
+          // Firefox support
+          str = element.textContent;
+          element.textContent = '';
+        }
+      }
+      return unescape(str);
+    }
+    return decode_HTML_entities;
+  })();
 
   // This is a fix/hack to make touch work in iframe on mobile safari,
   // like if the iframe is listening to touch events on the iframe's
