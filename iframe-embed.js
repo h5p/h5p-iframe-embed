@@ -54,14 +54,10 @@ H5P.IFrameEmbed = function (options, contentId) {
   };
 
   this.resize = function () {
-    if(this.parent && this.parent.slides && this.parent.slides.length >= 10) { // checks if the parent has slides and is therefore a course presentation
-      $iframe.css({width: '100%', height: '100%'}); // always set 100% if course pres
-    } else { // default standalone config
-      if(options.resizeSupported) { 
-        $iframe.css(
-          (H5P.isFullscreen) ? {width: '100%', height: '100%'} : getElementSize($iframe)
-        );
-      }
+    if(options.resizeSupported) { 
+      $iframe.css(
+        (H5P.isFullscreen) ? {width: '100%', height: '100%'} : getElementSize($iframe)
+      );
     }
   };
 
