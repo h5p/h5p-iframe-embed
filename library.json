@@ -1,9 +1,9 @@
 {
-  "title": "Iframe embedder",
+  "title": "Iframe Embedder",
   "description": "Embed internal or external html files",
   "majorVersion": 1,
   "minorVersion": 0,
-  "patchVersion": 9,
+  "patchVersion": 10,
   "runnable": 1,
   "author": "Amendor AS",
   "license": "cc-by-sa",
