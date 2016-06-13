@@ -1,0 +1,23 @@
+{
+  "semantics": [
+    {
+      "label": "Breite",
+      "description": "Breite des iFrames in CSS konformem Format. Standard: \"500px\""
+    },
+    {
+      "label": "Minimale Breite",
+      "description": "Minimale Breite des iFrames in CSS konformem Format. Standard: \"300px\""
+    },
+    {
+      "label": "Höhe",
+      "description": "Höhe des iFrames in CSS konformem Format. Standard: \"500px\""
+    },
+    {
+      "label": "Quelle",
+      "description": "URI zu externem Dokument oder Pfad zu einem Dokment, das innerhalb von H5P gefunden wurde (unter /Inhalt)"
+    },
+    {
+      "label": "Größenanpassung unterstützt",
+      "description": "Wenn dies aktiviert ist, dann wird ein Vollbild-Button angezeigt und H5P wird so in der Größe angepasst, dass es in seine Umgebung passt.",
+    }
+  ]
