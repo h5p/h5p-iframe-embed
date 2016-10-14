@@ -1,0 +1,34 @@
+{
+  "semantics": [
+    {
+      "englishLabel": "Width",
+      "label": "Bredde",
+      "englishDescription": "Width of iFrame in CSS compliant format. Default: \"500px\"",
+      "description": "Bredden av din iFrame i CSS format. Normal verdi: \"500px\""
+    },
+    {
+      "englishLabel": "Minimum width",
+      "label": "Minimum bredde",
+      "englishDescription": "Minimum width of iFrame in CSS compliant format. Default: \"300px\"",
+      "description": "Minste bredden din iFrame vil minskes til i CSS. Normal verdi: \"300px\""
+    },
+    {
+      "englishLabel": "Height",
+      "label": "Høyde",
+      "englishDescription": "Height of iFrame in CSS compliant format. Default: \"500px\"",
+      "description": "Høyden av din iFrame i CSS format. Normal verdi: \"500px\""
+    },
+    {
+      "englishLabel": "Source",
+      "label": "Kilde",
+      "englishDescription": "URI to external document, or path to document found inside H5P (under /content)",
+      "description": "URI til eksternt dokument, eller adresse til dokument i H5P (i /content mappen)"
+    },
+    {
+      "englishLabel": "Resize supported",
+      "label": "Slå på dynamisk størrelse",
+      "englishDescription": "If enabled, fullscreen button will be displayed, and H5P will be resized to fit it's surroundings",
+      "description": "Ved å slå på dette alternativet vil fullskjermsknapp vises og innholdet vil skalere til å bruke så mye plass som det kan"
+    }
+  ]
+}
