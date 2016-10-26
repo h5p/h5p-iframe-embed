@@ -36,12 +36,17 @@ H5P.IFrameEmbed = function (options, contentId) {
       src: iFrameSource,
       scrolling: 'no',
       frameBorder: 0,
-      'class': 'h5p-iframe-content h5p-iframe-wrapper'
-    }).css({width: options.width, height: options.height});
+      'class': 'h5p-iframe-content h5p-iframe-wrapper',
+      css: {
+        width: options.width,
+        height: options.height,
+        display: 'block'
+      }
+    });
 
     $wrapper.html('');
     $wrapper.append($iframe);
-    
+
     if(options.resizeSupported === false) {
       /* Unfortunately fullscreen-button is not in DOM yet.
        * Therefore we need to remove it using a timer */
@@ -49,7 +54,7 @@ H5P.IFrameEmbed = function (options, contentId) {
         $('.h5p-enable-fullscreen').hide();
       }, 1);
     }
-    
+
     this.$.trigger('resize');
   };
 
@@ -62,6 +67,10 @@ H5P.IFrameEmbed = function (options, contentId) {
       );
     }
   };
+
+  if (options.resizeSupported && this.on !== undefined) {
+    this.on('resize', this.resize);
+  }
 
   var getElementSize = function ($element) {
     // Get width of 'element' parent. Return width and height
