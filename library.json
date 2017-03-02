@@ -5,8 +5,8 @@
   "minorVersion": 0,
   "patchVersion": 13,
   "runnable": 1,
-  "author": "Amendor AS",
-  "license": "cc-by-sa",
+  "author": "Joubel",
+  "license": "MIT",
   "machineName": "H5P.IFrameEmbed",
   "preloadedJs": [
     {
