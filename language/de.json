@@ -2,15 +2,15 @@
   "semantics": [
     {
       "label": "Breite",
-      "description": "Breite des iFrames im CSS-konformen Format. Vorgabe: \"500px\""
+      "description": "Breite des iFrames im CSS-konformen Format. Voreinstellung: \"500px\""
     },
     {
       "label": "Minimale Breite",
-      "description": "Minimale Breite des iFrames im CSS-konformen Format. Vorgabe: \"300px\""
+      "description": "Minimale Breite des iFrames im CSS-konformen Format. Voreinstellung: \"300px\""
     },
     {
       "label": "Höhe",
-      "description": "Höhe des iFrames im CSS-konformen Format. Vorgabe: \"500px\""
+      "description": "Höhe des iFrames im CSS-konformen Format. Voreinstellung: \"500px\""
     },
     {
       "label": "Quelle",
