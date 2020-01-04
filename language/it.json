@@ -2,15 +2,15 @@
   "semantics": [
     {
       "label": "Larghezza",
-      "description": "Larghezza dell'iFrame nel formato conforme al CSS. Default: \"500px\""
+      "description": "Larghezza dell'iFrame nel formato conforme al CSS. Predefinito: \"500px\""
     },
     {
       "label": "Larghezza minima",
-      "description": "Larghezza minima dell'iFrame nel formato conforme al CSS. Default: \"300px\""
+      "description": "Larghezza minima dell'iFrame nel formato conforme al CSS. Predefinito: \"300px\""
     },
     {
       "label": "Altezza",
-      "description": "Altezza dell'iFrame nel formato conforme al CSS. Default: \"500px\""
+      "description": "Altezza dell'iFrame nel formato conforme al CSS. Predefinito: \"500px\""
     },
     {
       "label": "Sorgente",
