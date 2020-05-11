@@ -1,14 +1,14 @@
 [
   {
     "label": "Width",
-    "importnace": "high",
+    "importance": "high",
     "name": "width",
     "type": "text",
     "description": "Width of iFrame in CSS compliant format. Default: \"500px\""
   },
   {
     "label": "Minimum width",
-    "importnace": "high",
+    "importance": "high",
     "name": "minWidth",
     "type": "text",
     "description": "Minimum width of iFrame in CSS compliant format. Default: \"300px\""
@@ -21,7 +21,7 @@
   },
   {
     "label": "Source",
-    "importnace": "high",
+    "importance": "high",
     "name": "source",
     "type": "text",
     "description": "URI to external document, or path to document found inside H5P (under /content)"
@@ -30,8 +30,8 @@
     "name": "resizeSupported",
     "type": "boolean",
     "label": "Resize supported",
-    "importnace": "medium",
-    "description": "If enabled, fullscreen button will be displayed, and H5P will be resized to fit it's surroundings",
+    "importance": "medium",
+    "description": "If enabled, fullscreen button will be displayed, and H5P will be resized to fit its surroundings",
     "default": true
   }
 ]
