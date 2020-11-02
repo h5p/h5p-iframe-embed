@@ -2,15 +2,15 @@
   "semantics": [
     {
       "label": "너비",
-      "description": "CSS 호환 형식의 iFrame 폭 기본값: \"500px\"
+      "description": "CSS 호환 형식의 iFrame 폭 기본값: \"500px\""
     },
     {
       "label": "최소 폭",
-      "description": "CSS 호환 형식의 최소 iFrame 폭. 기본값: \"300px\"
+      "description": "CSS 호환 형식의 최소 iFrame 폭. 기본값: \"300px\""
     },
     {
       "label": "높이",
-      "description": "CSS 호환 형식의 iFrame 높이 기본값: \"500px\"
+      "description": "CSS 호환 형식의 iFrame 높이 기본값: \"500px\""
     },
     {
       "label": "출처",
