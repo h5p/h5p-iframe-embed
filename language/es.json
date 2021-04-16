@@ -6,7 +6,7 @@
     },
     {
       "label": "Ancho mínimo",
-      "description": "MAncho mínimo de iFrame en formato para CSS. Predeterminado: \"300px\""
+      "description": "Ancho mínimo de iFrame en formato para CSS. Predeterminado: \"300px\""
     },
     {
       "label": "Altura",
