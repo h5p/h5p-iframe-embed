@@ -32,6 +32,12 @@ H5P.IFrameEmbed = function (options, contentId) {
       }
     }
 
+    // Remove HTML encoding from source
+    iFrameSource = new DOMParser().parseFromString(iFrameSource, 'text/html').documentElement.textContent;
+
+    // Take care of special characters
+    iFrameSource = encodeURI(iFrameSource);
+
     $iframe = $('<iframe/>', {
       src: iFrameSource,
       scrolling: 'no',
