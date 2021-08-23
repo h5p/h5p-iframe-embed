@@ -1,6 +1,6 @@
 h5p-iframe-embed
 ================
-This H5P library make sit possible to embed "static" content displayed in an iFrame. The source may be internal or external:
+This H5P library makes it possible to embed "static" content displayed in an iFrame. The source may be internal or external:
 
   * **External:** URI to external page to embed inside iFrame. The URI is editable using the H5P editor.
   * **Internal:** this means at least the html-file is included in the H5P when beeing uploaded. Uploading html files
