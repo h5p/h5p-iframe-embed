@@ -14,7 +14,7 @@
     },
     {
       "label": "Origen",
-      "description": "URI hacia documento externo, o ruta al documento encontrado dentro de H5P (debajo de /content)"
+      "description": "URI hacia documento externo, o ruta al documento encontrado dentro de H5P (debajo de /contenido)"
     },
     {
       "label": "Cambiar tamaño soportado",
