@@ -25,7 +25,7 @@ H5P.IFrameEmbed = function (options, contentId) {
 
     if (options.source !== undefined) {
       if (options.source.trim().toLowerCase().substring(0, 4) === 'http') {
-        iFrameSource = options.source;
+        iFrameSource = decode_entities(options.source);
       }
       else {
         iFrameSource = H5P.getContentPath(contentId) + '/' + options.source;
@@ -65,9 +65,7 @@ H5P.IFrameEmbed = function (options, contentId) {
   };
 
   this.resize = function () {
-    // Set size of 'iframe' on startup, and when the browser
-    // is resized, or enters fullscreen.
-    if(options.resizeSupported) {
+    if(options.resizeSupported) { 
       $iframe.css(
         (H5P.isFullscreen) ? {width: '100%', height: '100%'} : getElementSize($iframe)
       );
@@ -93,6 +91,29 @@ H5P.IFrameEmbed = function (options, contentId) {
       height: elementWidth * elementSizeRatio + 'px'
     };
   };
+
+  var decode_entities = (function() {
+    // Remove HTML Entities
+    var element = document.createElement('div');
+
+    function decode_HTML_entities (str) {
+      if (str && typeof str === 'string') {
+        // Escape HTML before decoding for HTML Entities
+        str = escape(str).replace(/%26/g,'&').replace(/%23/g,'#').replace(/%3B/g,';');
+        element.innerHTML = str;
+        if (element.innerText) {
+          str = element.innerText;
+          element.innerText = '';
+        } else {
+          // Firefox support
+          str = element.textContent;
+          element.textContent = '';
+        }
+      }
+      return unescape(str);
+    }
+    return decode_HTML_entities;
+  })();
 
   // This is a fix/hack to make touch work in iframe on mobile safari,
   // like if the iframe is listening to touch events on the iframe's
