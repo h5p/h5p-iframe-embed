@@ -1,0 +1,24 @@
+{
+  "semantics": [
+    {
+      "label": "Szerokość",
+      "description": "Szerokość iFrame w formacie zgodnym z CSS . Domyślnie: \"500px\""
+    },
+    {
+      "label": "Minimalna szerokość",
+      "description": "Minimalna szerokość iFrame w formacie zgodnym z CSS. Domyślnie: \"300px\""
+    },
+    {
+      "label": "Wysokość",
+      "description": "Wysokość iFrame w formacie zgodnym z CSS. Domyślnie: \"500px\""
+    },
+    {
+      "label": "Źródło",
+      "description": "URI do zewnętrznego dokumentu lub ścieżka do dokumentu znajdującego się w H5P (pod/zawartość)"
+    },
+    {
+      "label": "Wspierana zmiana rozmiaru",
+      "description": "Jeśli ta opcja jest włączona, będzie widoczny przycisk pełnego ekranu i H5P zostanie dopasowane rozmiarem do otoczenia"
+    }
+  ]
+}
