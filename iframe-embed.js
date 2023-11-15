@@ -67,7 +67,7 @@ H5P.IFrameEmbed = function (options, contentId) {
   this.resize = function () {
     // Set size of 'iframe' on startup, and when the browser
     // is resized, or enters fullscreen.
-    if(options.resizeSupported) {
+    if(options.resizeSupported && $iframe) {
       $iframe.css(
         (H5P.isFullscreen) ? {width: '100%', height: '100%'} : getElementSize($iframe)
       );
