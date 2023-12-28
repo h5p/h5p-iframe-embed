@@ -6,7 +6,7 @@
     },
     {
       "label": "Minimum bredd",
-      "description": "Minsta bredden som din iFrame kan minskas till i CSS. Normalt verdi: \"300px\""
+      "description": "Minsta bredden som din iFrame kan minskas till i CSS. Normalt värde: \"300px\""
     },
     {
       "label": "Höjd",
@@ -14,7 +14,7 @@
     },
     {
       "label": "Källa",
-      "description": "URI till externt dokument, eller adress til dokument i H5P (i /content mappen)"
+      "description": "URI till externt dokument, eller adress til dokument i H5P (i /content-mappen)"
     },
     {
       "label": "Aktivera dynamisk storlek",
