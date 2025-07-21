@@ -1,0 +1,24 @@
+{
+  "semantics": [
+    {
+      "label": "Lățime",
+      "description": "Lățimea iFrame-ului în format conform CSS. Implicit: \"500px\""
+    },
+    {
+      "label": "Lățime minimă",
+      "description": "Lățimea minimă a iFrame-ului în format conform CSS. Implicit: \"300px\""
+    },
+    {
+      "label": "Înălțime",
+      "description": "Înălțimea iFrame-ului în format conform CSS. Implicit: \"500px\""
+    },
+    {
+      "label": "Sursă",
+      "description": "URI către un document extern, sau cale către un document găsit în interiorul H5P (sub /content)"
+    },
+    {
+      "label": "Redimensionare suportată",
+      "description": "Dacă este activat, se va afișa butonul de ecran complet, iar H5P va fi redimensionat pentru a se potrivi cu mediul înconjurător."
+    }
+  ]
+}
